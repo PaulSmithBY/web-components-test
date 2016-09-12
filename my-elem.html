@@ -1,0 +1,35 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="shared-styles.html">
+<link rel="import" href="jquery.html">
+
+<dom-module id="my-elem">
+  <template>
+      <style include="shared-styles"></style>
+      <style>
+          :host {
+              --custom-color: red;
+          }
+      </style>
+      <h2>Hello [[name]]</h2>
+  </template>
+
+  <script>
+      var privateValue = 'private';
+      Polymer({
+          is: 'my-elem',
+
+          properties: {
+              name: {
+                  type: String,
+                  value: 'Pavel'
+              }
+          },
+          getName: function () {
+              return this.name;
+          },
+          getPrivateValue: function () {
+              return privateValue;
+          }
+      });
+  </script>
+</dom-module>
